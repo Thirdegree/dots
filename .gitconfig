@@ -55,7 +55,6 @@
     cleanup = "!f(){ git reset --hard HEAD && git clean \"$@\"; }; f"
     squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
     ; summary = "!f(){ if [ $# -eq 0 ]; then branch=HEAD; else branch=origin/$1; fi; git diff $(git merge-base origin/master $branch)..$branch | grep '^[+-][^+-]' | sort | uniq -c | sort -nr; }; f"
-    pccp = "!f() { git prodconfig-commit && git cpush; }; f"
 [diff]
     tool = vimdiff
     algorithm = patience
